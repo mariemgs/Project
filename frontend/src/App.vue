@@ -1,19 +1,18 @@
 <template>
   <div> 
-    <Navbar />
     <RouterView/>
   </div>
 </template>
 
 <script>
-  import Navbar from '@/components/layout/Navbar.vue'
+  import Login from './views/login.vue'
   import axios from 'axios'
   import store from './store'
 
   export default {
     name: 'App',
     components: {
-      Navbar,
+      Login,
     },
     
     setup() {
