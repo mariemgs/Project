@@ -26,7 +26,20 @@ export default createStore({
         removeToken(state) {
             state.token = ''
             state.isAuthenticated = false
-        }
+        },
+        resetPassword(state) {
+            state.isLoading = true;
+            state.resetPasswordSuccess = false;
+            state.resetPasswordError = null;
+          },
+          resetPasswordSuccess(state) {
+            state.isLoading = false;
+            state.resetPasswordSuccess = true;
+          },
+          resetPasswordError(state, error) {
+            state.isLoading = false;
+            state.resetPasswordError = error;
+          }
 
 
     },

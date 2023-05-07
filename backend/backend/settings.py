@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = 'django-insecure--3(@3f+gtq4yro8d@i7ib709cysq&#2!w+2mm2b04to^$*=#r4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,6 +34,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'djoser',
+
+     #personal_apps
+    'opportunity',
+
+     # Other apps…
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +80,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'crmdatabase1',
+      'NAME':'crmdatabase2',
       'USER':'postgres',
       'PASSWORD':'mariemguesmi',
       'HOST':'localhost',
@@ -84,7 +90,10 @@ DATABASES={
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
     )
 }
 
